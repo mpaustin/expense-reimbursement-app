@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 
+import { API_BASE_URL } from '../api';
 interface LoginProps {
     history: any;
 }
@@ -48,7 +49,7 @@ const LoginComponent: React.FC<LoginProps> = (props) => {
       
         Axios.interceptors.response.use((resp) => resp, (error) => setLoginError(true));
 
-        Axios.post('http://localhost:8080/project1mpa/api/login', {
+        Axios.post(`${API_BASE_URL}/login`, {
 
         credId: id,
         credPassword: password,

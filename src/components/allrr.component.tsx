@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
+import { API_BASE_URL } from '../api';
 const AllRRComponent: React.FC = ()=> {
 
     const [rr, setRR] = useState([]);
@@ -12,7 +13,7 @@ const AllRRComponent: React.FC = ()=> {
     }
 
     const approveRR = () => {
-        Axios.get('http://localhost:8080/project1mpa/api/viewallrrs', {
+        Axios.get(`${API_BASE_URL}/viewallrrs`, {
             params: {
                 action: 'approve',
                 id: idToActOn,
@@ -27,7 +28,7 @@ const AllRRComponent: React.FC = ()=> {
     }
 
     const denyRR = () => {
-        Axios.get('http://localhost:8080/project1mpa/api/viewallrrs', {
+        Axios.get(`${API_BASE_URL}/viewallrrs`, {
             params: {
                 action: 'deny',
                 id: idToActOn,
@@ -43,7 +44,7 @@ const AllRRComponent: React.FC = ()=> {
     }
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/project1mpa/api/viewallrrs', {
+        Axios.get(`${API_BASE_URL}/viewallrrs`, {
             params: {
                 action: 'get'
             }

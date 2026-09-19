@@ -1,11 +1,10 @@
 import React from 'react';
 import ViewEditProfComponent from './vieweditprof.component';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import SubmitRR from './srr.component';
 import EmpRRComponent from './emprr.component';
 import EmpResRRComponent from './empresrr.component';
 import EmpNavComponent from './empnav.component';
-import LoginComponent from './login.component';
 
 const EhomeComponent: React.FC = () => {
 

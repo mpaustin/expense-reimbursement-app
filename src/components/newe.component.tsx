@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 
+import { API_BASE_URL } from '../api';
 const NewEmployeeComponent: React.FC = () => {
 
   const [empName, setEmpName] = useState('');
@@ -30,7 +31,7 @@ const NewEmployeeComponent: React.FC = () => {
 
   const handleSubmit = (name: string, email: string, id: string, password: string) => {
 
-    Axios.post('http://localhost:8080/project1mpa/api/regnewemp', {
+    Axios.post(`${API_BASE_URL}/regnewemp`, {
 
       name: name,
       email: email,

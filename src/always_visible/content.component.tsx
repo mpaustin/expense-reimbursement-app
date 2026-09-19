@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import LoginComponent from '../components/login.component';
 import EhomeComponent from '../components/ehome.component';
 import MhomeComponent from '../components/mhome.component';
@@ -13,9 +13,6 @@ interface ContentProps {
   }
 
 const ContentComponent: React.FC<ContentProps> = (props) => {
-
-    const [empOrMan, setEmpOrMan] = useState('');
-    let roleString:string;
 
     return(
         <Switch>

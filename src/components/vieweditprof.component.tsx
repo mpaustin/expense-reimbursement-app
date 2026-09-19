@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
+import { API_BASE_URL } from '../api';
 const ViewEditProfComponent: React.FC = () => {
 
     const [email, setEmail] = useState('');
@@ -14,8 +14,6 @@ const ViewEditProfComponent: React.FC = () => {
 
     const [newPassword, setNewPassword] = useState('');
     const [newEmail, setNewEmail] = useState('');
-
-    const [emp, setEmp] = useState([]);
 
     const [successfulEmail, setSuccessfulEmail] = useState(false);
     const [successfulPassword, setSuccessfulPassword] = useState(false);
@@ -41,26 +39,22 @@ const ViewEditProfComponent: React.FC = () => {
     }
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/project1mpa/api/vieweditprof', {
+        Axios.get(`${API_BASE_URL}/vieweditprof`, {
             params: {
                 id: id
             }
         })
         .then((response) => {
-            setEmp(response.data);
-
-            console.log(response.data);
-
             setName(response.data.name);
             setEmail(response.data.email);
 
         }).catch((error) => {
             console.log(error);
         });
-    }, []);
+    }, [id]);
 
     const updatePassword = (password: string) => {
-        Axios.post('http://localhost:8080/project1mpa/api/vieweditprof',{
+        Axios.post(`${API_BASE_URL}/vieweditprof`,{
             id: localStorage.getItem("id"),
             password: password
         })
@@ -74,7 +68,7 @@ const ViewEditProfComponent: React.FC = () => {
     }
 
     const updateEmail = (email: string) => {
-        Axios.post('http://localhost:8080/project1mpa/api/vieweditprof', {
+        Axios.post(`${API_BASE_URL}/vieweditprof`, {
             id: localStorage.getItem("id"),
             email: email
         })

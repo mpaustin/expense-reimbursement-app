@@ -3,12 +3,13 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import { useState, useEffect } from 'react';
 import React from 'react';
 
+import { API_BASE_URL } from '../api';
 const EmpRRComponent: React.FC = () => {
     
     const [empRR, setEmpRR] = useState([]);
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/project1mpa/api/viewemprrs',{
+        Axios.get(`${API_BASE_URL}/viewemprrs`,{
             params: {
                 id: localStorage.getItem("id")
             }

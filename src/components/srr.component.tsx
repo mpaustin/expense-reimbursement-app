@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 
+import { API_BASE_URL } from '../api';
 const SubmitRR: React.FC = () => {
 
   const [amount, setAmount] = useState('');
   const [info, setInfo] = useState('');
 
   const [successful, setSuccessful] = useState(false);
-
-  const empId = localStorage.getItem("id");
 
   const handleAmountUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value);
@@ -22,7 +21,7 @@ const SubmitRR: React.FC = () => {
 
     Axios.interceptors.response.use();
 
-    Axios.post('http://localhost:8080/project1mpa/api/submitnewrr', {
+    Axios.post(`${API_BASE_URL}/submitnewrr`, {
 
       empID: localStorage.getItem('id'),
       amount: amount,
